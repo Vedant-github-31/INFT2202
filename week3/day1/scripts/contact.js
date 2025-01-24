@@ -25,7 +25,7 @@ class Contact {
      * @returns {string}
      */
     get fullName() {
-        return this._fullname;
+        return this._fullName;
     }
 
     /**
@@ -36,7 +36,7 @@ class Contact {
         if(typeof fullName !== "string"||fullName.trim() === ""){
             throw new Error("INVALID fullName: must be a non-empty string");
         }
-        this._fullname = fullName;
+        this._fullName = fullName;
     }
 
     /**
@@ -88,7 +88,7 @@ if(!emailRegex.test(emailAddress)){
      * @returns {string|null}
      */
     serialize(){
-        if(!this._fullName || this._contactNumber || !this.emailAddress){
+        if(!this._fullName || !this._contactNumber || !this.emailAddress){
     console.error("One or more of the contact properties are missing or invalid");
     return null;
         }
@@ -101,7 +101,7 @@ if(!emailRegex.test(emailAddress)){
      */
     deserialize(data){
         if(typeof data !== "string"|| data.split(",").length === 3){
-            console.error("INVALID data format for desweialization");
+            console.error("INVALID data format for deseialization");
             return;
         }
         const propArray = data.split(",");
